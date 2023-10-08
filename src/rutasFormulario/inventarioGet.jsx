@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axios";
 
 
 
@@ -7,9 +7,9 @@ const inventarioGet = async () => {
  
   
   try {
-    const  url = 'http://localhost:3001/obtener'
+    
 
-    const response = await axios.get(url)
+    const response = await axios.get("/obtener")
 
     return  response.data
   } catch (error) {

@@ -1,14 +1,14 @@
 
 
 
-import axios from "axios"
+import axios from "../axios";
 
 
 const inventario = async (formData) => {
   
     try {
-        const  url = 'http://localhost:3001/add'
-        const response = await axios.post(url, formData)
+        
+        const response = await axios.post("/add", formData)
 
         console.log("Objeto guardado con éxito:", response.data);
         return response.data;

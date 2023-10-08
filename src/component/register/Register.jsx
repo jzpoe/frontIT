@@ -1,7 +1,7 @@
 
 
 import './Register.css'
-import axios from 'axios';
+import axios from '/src/axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3002/api/register', {
+      const response = await axios.post('/register', {
         email,
         password,
       });

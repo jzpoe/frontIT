@@ -1,12 +1,11 @@
 
 
 import './Login.css'
-import axios from "axios";
+import axios from "../axios";
 import { useState } from "react";
 import { Link,useNavigate } from 'react-router-dom';
 
 
-      
     const Login = () => {
       const [email, setEmail] = useState('');
       const [password, setPassword] = useState('');
@@ -18,7 +17,7 @@ import { Link,useNavigate } from 'react-router-dom';
         e.preventDefault();
     
         try {
-          const response = await axios.post('http://localhost:3001/login', {
+          const response = await axios.post('/login', {
             email: email,
             password: password,
           });
