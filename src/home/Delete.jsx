@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from '/src/axios';
 
 
 
@@ -8,7 +8,7 @@ export const Delete = (_id, datosGet, setDatosGet) => {
   
     if (confirmacion) {
       axios
-        .delete(`http://localhost:3001/eliminar/${_id}`)
+        .delete(`/eliminar/${_id}`)
         .then((response) => {
           if (response.status === 200) {
             alert("Tarea eliminada con éxito");
