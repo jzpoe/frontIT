@@ -1,9 +1,11 @@
 
 
 import './Login.css'
-import axios from "../axios";
+import axios from "../routeGlobal/axios";
 import { useState } from "react";
 import { Link,useNavigate } from 'react-router-dom';
+import { alerta } from '../sweetalert/Sweetalert';
+import { alertanoexiste } from '../sweetalert/Sweetalert';
 
 
     const Login = () => {
@@ -12,6 +14,9 @@ import { Link,useNavigate } from 'react-router-dom';
       const navigate = useNavigate(); // Corrección aquí
 
       
+      
+    
+
       const handleLogin = async (e) => {
         
         e.preventDefault();
@@ -23,7 +28,6 @@ import { Link,useNavigate } from 'react-router-dom';
           });
     
           if (response.data.token) {
-            
             // Maneja la autenticación exitosa (guarda el token, redirección, etc.)
             console.log('Inicio de sesión exitoso');
             const token = response.data.token
@@ -38,7 +42,7 @@ import { Link,useNavigate } from 'react-router-dom';
               }
               })
               
-
+              alerta()
           } else {
             // Muestra un mensaje de error
             console.log('Error en el inicio de sesión');
@@ -46,15 +50,17 @@ import { Link,useNavigate } from 'react-router-dom';
           }
         } catch (error) {
           console.error('Error al iniciar sesión:', error);
-          alert('usuario no existe, registrate');
+          
+          alertanoexiste();
           setEmail("")
-              setPassword("")
+          setPassword("")
         }
       };
-    
+
+     
       return (
         <div className="form-container">
-          <h2>Iniciar Sesión</h2>
+          <h2 className='logo'>Iniciar Sesión</h2>
           <form onSubmit={handleLogin}>
             <div className='form-column-1'  >
               <label>Email:</label>
@@ -74,7 +80,7 @@ import { Link,useNavigate } from 'react-router-dom';
                 
               />
             </div>
-            <button className="bn5" type="submit">Iniciar Sesión</button>
+            <button  className="bn5" type="submit">Iniciar Sesión</button>
             
 
             <Link to="/Register" className="form-registro">

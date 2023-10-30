@@ -1,7 +1,7 @@
 
 
 
-import axios from "../axios";
+import axios from "../routeGlobal/axios";
 
 
 const inventario = async (formData) => {

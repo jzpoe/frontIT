@@ -2,9 +2,11 @@
     max-width: 400px;
     margin: 150px auto; /* Centro verticalmente */
     padding: 20px;
-    border: 1px solid #ccc;
+    
     border-radius: 5px;
     text-align: center; /* Centra el texto en el centro horizontalmente */
+
+    /* border: 1px solid #ccc; */
   }
   
   .form-container h2 {
@@ -127,4 +129,8 @@
       margin-top: 13px;
     }
   
+  }
+
+  .h2{
+    border-radius:74% 26% 65% 35% / 73% 69% 31% 27% ;
   }

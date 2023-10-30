@@ -1,26 +1,49 @@
-import axios from '/src/axios';
+import Swal from "sweetalert2";
+import axios from "../routeGlobal/axios";
 
 
 
 
-export const Delete = (_id, datosGet, setDatosGet) => {
-    const confirmacion = window.confirm("¿Seguro que deseas eliminar la tarea?");
+
+const Delete = (_id, datosGet, setDatosGet) => {
   
-    if (confirmacion) {
-      axios
-        .delete(`/eliminar/${_id}`)
-        .then((response) => {
-          if (response.status === 200) {
-            alert("Tarea eliminada con éxito");
-            const updatedDatos = datosGet.filter((dato) => dato._id !== _id);
-            setDatosGet(updatedDatos);
-          }
-        })
-        .catch((error) => {
-          // Manejar el error aquí
-          console.error("Error al eliminar la tarea:", error);
-          // Puedes mostrar un mensaje de error al usuario aquí
-          alert("Error al eliminar la tarea");
-        });
-    }
+    Swal.fire({
+      title: 'Eliminar',
+      text: '¿Seguro que deseas eliminar la tarea?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`/eliminar/${_id}`)
+          .then((response) => {
+            if (response.status === 200) {
+              Swal.fire({
+                text: 'Tarea eliminada con éxito',
+                icon: 'success',
+              });
+  
+              const updatedDatos = datosGet.filter((dato) => dato._id !== _id);
+              setDatosGet(updatedDatos);
+            } else {
+              Swal.fire({
+                text: 'Error al eliminar la tarea',
+                icon: 'error',
+              });
+            }
+          })
+          .catch((error) => {
+            console.error('Error al eliminar la tarea:', error);
+            Swal.fire({
+              text: 'Error al eliminar la tarea',
+              icon: 'error',
+            });
+          });
+      }
+    });
   };
+      
+ 
+  export default Delete

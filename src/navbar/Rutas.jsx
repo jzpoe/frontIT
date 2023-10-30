@@ -5,7 +5,6 @@ import './Rutas.css';
 
 const Rutas = () => {
 
-  
 
   return (
     <nav className="navbar">
@@ -20,12 +19,14 @@ const Rutas = () => {
             Formulario
           </Link>
         </li>
-        <li className="navbar-item">
+        {/* <li className="navbar-item">
           <Link to="/Ticket" className="navbar-link">
             Ticket
           </Link>
         </li>
+       */}
       </ul>
+      
     </nav>
   );
 };

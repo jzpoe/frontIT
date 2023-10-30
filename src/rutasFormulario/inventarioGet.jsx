@@ -1,4 +1,4 @@
-import axios from "../axios";
+import axios from "../routeGlobal/axios";
 
 
 
@@ -10,10 +10,11 @@ const inventarioGet = async () => {
     
 
     const response = await axios.get("/obtener")
-
+    console.log(response)
     return  response.data
+    
   } catch (error) {
-    console.error("Error al guardar el objeto:", error);
+    console.error("Error al obtener el objeto:", error);
   }
 }
 

@@ -1,48 +1,45 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
+.generatePDF, .btnBasura, .calculateButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin: 4px;
+  cursor: pointer;
 }
 
-th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+/* Alineación horizontal de los campos de fecha */
+.date-inputs {
+  display: flex;
+  justify-content: space-between;
 }
 
-tr:nth-child(even) {
-    background-color: #0056b3;
+.input-group {
+  margin-right: 10px;
 }
 
-th {
-    background-color: #0056b3;
-    color: white;
+/* Margen entre filas en las tablas */
+.responsive-table tbody tr {
+  margin-bottom: 10px;
 }
 
-.generatePDF{
-    
-    background-color: #ffffff; /* Color de fondo rojo */
-    color: #ffffff; /* Color del texto blanco */
-    border: 2px solid #ff0000; /* Borde de 2 píxeles sólido rojo */
-    padding: 5px 10px; /* Espaciado interior del botón */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    border-radius: 5px; /* Bordes redondeados */
-    font-weight: bold; /* Texto en negrita */
-    text-decoration: none; /* Quita el subrayado de los enlaces si lo usas como enlace */
-    height: 30px;
-    width: 40px;
+/* Bordes y sombra en las tablas */
+.responsive-table {
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-   
-    
-  }
+.responsive-table th, .responsive-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
 
-  .btnBasura{
-    background-color: #ff0000; /* Color de fondo rojo */
-    color: #ffffff; /* Color del texto blanco */
-    padding: 5px 10px; /* Espaciado interior del botón */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    border-radius: 5px; /* Bordes redondeados */
-    font-weight: bold; /* Texto en negrita */
-    text-decoration: none; /* Quita el subrayado de los enlaces si lo usas como enlace */
-    height: 30px;
-    width: 40px;
-  }
+/* Estilo para los encabezados de las tablas */
+.responsive-table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Cambio de cursor en los checkboxes */
+input[type="checkbox"] {
+  cursor: pointer;
+}
