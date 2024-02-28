@@ -7,6 +7,7 @@ import inventarioGet from "../rutasFormulario/inventarioGet";
 import Delete from "./Delete";
 import { useCalculadora } from "./Calculador";
 import AgregarPrecio from "../rutasFormulario/agregarPrecio";
+import Buscador from "../rutasFormulario/Buscador";
 
 const Home = () => {
   const [datosGet, setDatosGet] = useState([]);
@@ -138,11 +139,12 @@ const Home = () => {
           onChange={selectEmpresaSAS}
         >
           <option value="">Selecciona una empresa</option>
-          <option value="GreeSQA">GREENSQA</option>
+          <option value="GreenSQA">GREENSQA</option>
           <option value="OMEGA">OMEGA</option>
           <option value="QPRO">QPRO</option>
         </select>
       </label>
+      
       <table className="responsive-table">
         <thead>
           <tr>
@@ -157,28 +159,34 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
+        <Buscador/>
           {datosGet
+         
             .filter((dato) => {
               const empresaMinuscula = selectEmpresa.toLowerCase();
               const clienteMinuscula = dato.CLIENTE.toLowerCase();
               return empresaMinuscula === clienteMinuscula;
             })
+            
             .map((datos) => (
+              
               <tr key={datos._id}>
+                
                 <td>
+                
                   <input
                     type="checkbox"
                     onChange={(e) => handleCheckboxChange(e, datos)}
                     checked={selectItem.includes(datos._id)}
                   />
+                  
                 </td>
-
+                
                 <td>{datos.CLIENTE}</td>
                 <td>{datos.SERIAL}</td>
                 <td>{datos.ACTIVOFIJO}</td>
                 <td>{datos.ACTIVOFIJOCARGADOR}</td>
                 <td>{datos.TIPO}</td>
-                {/* <td>{parseInt(datos.valor)}</td> */}
                 <td>{datos.DETALLE}</td>
                 <td>{datos.valorInicial} </td>
                 <button
